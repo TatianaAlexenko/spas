@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Single Page Applications - Coding & Cocktails KC</title>
+
+        <meta name="description" content="This is the official Coding & Cocktails Intro to Single Page Applications course.">
+        <meta name="author" content="Kansas City Women in Technology">
+        <meta name="keywords" content="Kansas City Women in Technology, kcwit, women engineers, learn to code, girls in tech, women in tech, coding and cocktails, learn front-end development">
+        <meta property="og:title" content="Intro to Single Page Applications - Coding & Cocktails KC" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="http://codingandcocktails.kcwomenintech.org/images/logo.png" />
+        <meta property="og:url" content="http://codingandcocktails.kcwomenintech.org"/>
+        <meta property="og:description" content="This is the official Coding & Cocktails Intro to Single Page Applications course."/>
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="http://codingandcocktails.kcwomenintech.org">
+        <meta name="twitter:title" content="Coding And Cocktails by Kansas City Women in Technology">
+        <meta name="twitter:description" content="This is the official Coding & Cocktails Intro to Single Page Applications course.">
+        <meta name="twitter:image" content="http://codingandcocktails.kcwomenintech.org/images/logo.png">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/codingandcocktails.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="coding-and-cocktails">
+					<img src="images/logo-large.png" alt="Coding &amp; Cocktails" />
+				</section>
+				<section id="single-page-applications">
+					<h3>Intro to Single Page Applications</h3>
+                    <img src="images/logo.png" alt="Coding &amp; Cocktails" />
+                    <p>Slides available at:
+                        <!-- update links to point to slides and display bitly link -->
+                        <a href="http://kansascitywomenintechnology.github.io/spas" target="_blank">http://bit.ly/CnCSpa</a>
+                    </p>
+				</section>
+				<section id="kcwit">
+                    <h3>Powered By:</h3>
+                    <a href="http://kcwomenintech.org/" target="_blank"><img src="images/kcwit_logo_white.png" alt="Kansas City Women in Technology logo"></a>
+                </section>
+                <section>
+                    <h3>Our Hosts</h3>
+                    <h2>The Nerdery</h2>
+                    <a href="https://nerdery.com/" target="_blank"><img src="images/Nerdery-logo.png" alt="The Nerdery Logo"></a>
+                </section>
+                <section id="mentors">
+                    <h3>Mentors</h3>
+                    <img src="images/mentor.jpg" alt="Women Mentoring" style="height: 80%; width: 80%; margin-bottom: 0;">
+                    <p class="right-align" style="font-size: .3em; margin-top: 0; margin-right: 10%;" ><a href="http://www.wocintechchat.com/">Photo by #WOCinTech Chat</a></p>
+                </section>
+                <section id="objectives">
+                    <h2>What we'll cover</h2>
+                    <ul>
+                        <li>What is a Single Page Application?</li>
+                        <li>How do SPAs compare to a traditional Website</li>
+                        <li>Pros &amp; Cons of SPAs</li>
+                        <li>SPA Frameworks &amp; Libraries</li>
+                    </ul>
+                </section>
+                <section id="intro">
+                    <section>
+                        <h2>Introduction to Single Page Applications</h2>
+                    </section>
+                    <section>
+                        <h2>Traditional Webstie vs. Single Page Application</h2>
+                        <table>
+                            <th>
+                                <td>Traditional Website</td>
+                                <td>Single Page Application</td>
+                            </th>
+                            <tr>
+                                <td><a href="">Example</a></td>
+                                <td><a href="">Example</a></td>
+                            </tr>
+                            <tr>
+                                <td>Multiple page site each having it's own HTML file
+                                    <small>
+                                        <ul>
+                                            <li>Home</li>
+                                            <li>About</li>
+                                            <li>Contact</li>
+                                        </ul>
+                                    </small>
+                                </td>
+                                <td>One main HTML page</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>SPA Examples</h2>
+                        <h3><a href="http://codingandcocktails.kcwomenintech.org">Obvious single page that scrolls to different sections.</a></h3>
+                        <!-- TODO: Find good example for here! -->
+                        <h2><a href="">Looks like traditional website due to URL changes but.... it's not! </a></h2>
+                    </section>
+                </section>
+                <section id="basics">
+                    <section>
+                        <h2>Single Page Application Basics</h2>
+                        <ul>
+                            <li class="fragment">Single index.html page</li>
+                            <li class="fragment">Dynamically updates view/content based on user interaction</li>
+                            <li class="fragment">Better User Experience</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Single Page Application Cons</h2>
+                        <ul>
+                            <li class="fragment">Anyone browsing without JavaScript enabled will not get all the functionality</li>
+                            <li class="fragment">Search Engine Optimization (SEO)</li>
+                        </ul>
+                        <aside class="notes">
+                            <ul>
+                                <li>It's not very common for people to browse without JS enabled anymore but it can happen</li>
+                                <li>Search engines have a hard time crawling SPAs
+                                    <ul>
+                                        <li>Google has gotten better</li>
+                                        <li>Sometimes have to point the bots to a rendered page (something like rendered.js</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Single Page Application Considerations</h2>
+                    </section>
+                    <section>
+                        <h2>Modularity</h2>
+                        <p>Common components across the different pages</p>
+                        <ul>
+                            <li class="fragment">Navigation Bar</li>
+                            <li class="fragment">Footer</li>
+                            <li class="fragment">Date Picker</li>
+                        </ul>
+
+                    </section>
+                    <section>
+                        <h2>Routing</h2>
+                    </section>
+                    <section>
+                        <h2>Framework or Library</h2>
+                        <small><a href="">What's the difference?</a></small>
+                        <ul>
+                            <li class="fragment">Angular 2</li>
+                            <li class="fragment">React</li>
+                            <li class="fragment">Backbone</li>
+                            <li class="fragment">Ember</li>
+                            <li class="fragment">Meteor</li>
+                            <li class="fragment">Aurelia</li>
+                            <li class="fragment">Polymer</li>
+                            <li class="fragment">and more!</li>
+                        </ul>
+                    </section>
+                </sectin>
+                <section id="review">
+                    <h2>Review</h2>
+                    <ul>
+                        <li>Single Page Application Basics</li>
+                        <li>Single Page Application Frameworks &amp; Libraries</li>
+                    </ul>
+                </section>          
+                <section id="questions">
+                  <h2>Questions?</h2>
+                  <div style = "font-size:1200%; height:100%;" class ="blue">?
+                    <div class ="clear"></div></div>
+                </section>
+                <section id="contact">
+                    <h2>Thank You!</h2>
+                    <h4>Keep in touch!</h4>
+                    <div>
+                        <a style="font-size: 1.2em; font-weight: bold; margin: 15px;" href="http://codingandcocktails.kcwomenintech.org" target="_blank">codingandcocktails.kcwomenintech.org</a>
+                    </div>
+                    <div>
+                        <i class="fa fa-twitter fa-lg"></i><a style="font-size: 1.2em; font-weight: bold;" href="https://twitter.com/codecocktailskc" target="_blank">&nbsp;&nbsp;@codecocktailskc</a>
+                    </div>
+                    <div>
+                        <i class="fa fa-facebook fa-lg"></i><a style="font-size: 1.2em; font-weight: bold;" href="https://www.facebook.com/codingandcocktailsKC" target="_blank">&nbsp;&nbsp;facebook.com/codingandcocktailsKC</a>
+                    </div>
+                    <div>
+                        <i class="fa fa-slack fa-lg"></i><a style="font-size: 1.2em; font-weight: bold;" href="https://kcwit.slack.com/" target="_blank">&nbsp;&nbsp;kcwit.slack.com</a>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#LadyDevs</h3>
+                        <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#KCWiT</p>
+                        <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#CodingAndCocktailsKC</p>
+                    </div>
+                    <h3 style="margin-top: 20px;"><a href="http://www.eventbrite.com/e/coding-cocktails-june-tickets-24377937066?aff=presentation">Click here to join us next month!</a></h3>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
