@@ -53,8 +53,12 @@ body {
   background: #134674;
   text-shadow: none; }
 
-li {
-  margin-top: 5px !important;
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
 }
 
 /*********************************************
@@ -176,6 +180,12 @@ SNIPPETS
 .reveal code {
   padding: 10px;
   text-align: left
+}
+
+.separate {
+  background: #3f3f3f; 
+  font-family: Inconsolata;
+  padding: 2px !important;
 }
 
 /*********************************************
