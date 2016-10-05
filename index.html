@@ -222,7 +222,6 @@
                         <img style="width: 400px;" src="images/meteor-logo.svg" alt="Meteor JS Logo">
                         <p>And More!</p>
                         <aside class="notes">
-                            <!-- TODO: Add differences/similarities -->
                             <ul>
                                 <li>Angular
                                     <ul>
@@ -273,13 +272,13 @@
                     </section>
                     <section>
                         <h3>Angular2 Building Blocks</h3>
-                        <!-- TODO: Insert image or video to help show concept?? -->
-                        <ul>
+                        <img src="images/arch.png" alt="Angular2 Architecture" style="width: 50%; margin-left: 0;">
+                        <ul style="columns: 2; width: 50%; list-style-type: none;">
                             <li>Modules</li>
                             <li>Components</li>
                             <li>Templates</li>
-                            <li>Data Binding</li>
                             <li>Directives</li>
+                            <li>Data Binding</li>
                             <li>Services</li>
                             <li>Routing</li>
                         </ul>
@@ -290,7 +289,7 @@
                             <li class="fragment">Microsoft Developed</li>
                             <li class="fragment">Compiled into JavaScript</li>
                             <li class="fragment">Makes using Angular2 easier</li>
-                            <li class="fragment">.ts file extensions instead of .js</li> <!-- TODO: style .ts & .js -->
+                            <li class="fragment"><span class="separate">.ts</span> file extensions instead of <span class="separate">.js</span></li>
                             <li class="fragment">Can write JavaScript in a TypeScript file but not the other way around</li>
                         </ul>
                     </section>
@@ -356,13 +355,19 @@
                         <p>Scaffold components, services, directives, etc.</p>
                         <ul>
                             <li class="fragment">Component
-                                <pre><code class="bash">ng generate my-component-name-here</code></pre>
+                                <pre><code class="bash">ng generate component my-component-name-here</code></pre>
                             OR
                                 <pre><code class="bash">ng g component my-component-name-here</code></pre></li>
                             <li class="fragment">Service
                                 <pre><code class="bash">ng g service my-service-name-here</code></pre></li>
                         </ul>
-                        <video src=""></video>  <!-- TODO: Create video showing scaffolding -->
+                    </section>
+                    <section>
+                        <h3>CLI Scaffolding</h3>
+                        <video width="700" height="500" controls preload>
+                            <source src="images/scaffold.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </section>
                     <section>
                         <h3>What can we do with the CLI?</h3>
@@ -379,7 +384,8 @@
                 </section>
                 <section class="drink" data-background-image="images/highfive.gif">
                     <h2>Let's Do This!</h2>
-                    <!-- Part 1 of the worksheet here maybe?? -->
+                    <h2>Work through Parts 0 &amp; 1 of tonight's worksheet</h2>
+                    <a href="http://codingandcocktails.kcwomenintech.org/sessions#spas" target="_blank">Worksheet Link</a>
                 </section>
                 <section id="building-blocks">
                     <section>
@@ -398,7 +404,6 @@
                             <li class="fragment">Fundamental building block
                                 <ul>
                                     <li class="fragment">Every app has at least one component</li>
-                                    <!-- TODO: Walkthrough app component -->
                                     <li class="fragment">A component can have child components</li>
                                     <div class="fragment">
                                         <li>Application is a tree of components</li>
@@ -418,7 +423,59 @@
                                     <li>Behavior</li>
                                 </ul>
                             </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Components</h3>
+                        <ul>
+                            <li class="fragment">App root component - note the selector name:
+                                <pre><code class="typescript">import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Cocktails are delicious!';
+}</code></pre></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Components</h3>
+                        <ul>
+                            <li class="fragment">Template utilizes selector name for component placement
+                                <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Trivia&lt;/title&gt;
+  &lt;base href="/"&gt;
+
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;link rel="icon" type="image/x-icon" href="favicon.ico"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;app-root&gt;Loading...&lt;/app-root&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+                    </section>
+                    <section>
+                        <h3>Components</h3>
+                        <img style="display: block; margin: 15px auto;" src="images/structure.png" alt="Component Code Structure">
+                        <ul>
+                            <li>Code Structure
+                                <ul>
+                                    <li class="fragment">HTML &amp; CSS files are bundled together in the component's directory</li>
+                                    <li class="fragment">Spec file is a test file - we won't use this tonight</li>
+                                    <li class="fragment">Component's CSS file changes styles only on the component, not on the entire page/app</li>
+                                </ul>
+                            </li>
                             
+                        </ul>
+                            <!-- TODO!!! -->
+                            <!-- <li class="fragment">Walk through example code for a different component
+</li> -->
                         </ul>
                     </section>
                     <section>
@@ -444,6 +501,23 @@
                                     </div>
                                 </ul>
                             </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Templates</h3>
+                        <ul>
+                            <li class="fragment">Add a component to your template:</li>
+                            <div class="fragment">
+                                <li>In the *.component.ts file a selector is defined in the component's metadata:</li>
+                                <pre><code class="typescript data-noescape">@Component({</code></pre>
+                                <pre><code class="typescript fragment">    selector: 'app-quiz',</code></pre>
+<pre><code class="typescript fragment">    templateUrl: './quiz.component.html',
+    styleUrls: ['./quiz.component.css']
+})</code></pre>
+                            </div>
+                            <li class="fragment">Add the selector to the parent component's template:
+                                <pre><code class="html">&lt;app-quiz&gt;&lt;/app-quiz&gt;</code></pre></li>
+                            <li class="fragment">That markup in the parent template gets replaced with the contents of quiz.component.html</li>
                         </ul>
                     </section>
                     <section>
@@ -643,12 +717,14 @@
                 </section>          
                 <section id="questions">
                   <h2>Questions?</h2>
-                  <div style = "font-size:1200%; height:100%;" class ="blue">?
+                  <div style = "font-size:1200%; height:100%; color: #d0c675;">?
                     <div class ="clear"></div></div>
+                  <h2><a href="http://codingandcocktails.kcwomenintech.org/sessions#spas" target="_blank">Tonight's worksheet</a></h2>
                 </section>
                 <section id="contact">
                     <h2>Thank You!</h2>
                     <h4>Keep in touch!</h4>
+                    <h3 style="margin-top: 20px;"><a href="http://www.eventbrite.com/e/coding-cocktails-november-tickets-22181348009?aff=presentation" target="_blank">Click here to join us next month!</a></h3>
                     <div>
                         <a style="font-size: 1.2em; font-weight: bold; margin: 15px;" href="http://codingandcocktails.kcwomenintech.org" target="_blank">codingandcocktails.kcwomenintech.org</a>
                     </div>
@@ -666,8 +742,6 @@
                         <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#KCWiT</p>
                         <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#CodingAndCocktailsKC</p>
                     </div>
-                    <!-- TODO: Update link after copy review -->
-                    <h3 style="margin-top: 20px;"><a href="http://www.eventbrite.com/e/coding-cocktails-june-tickets-24377937066?aff=presentation" target="_blank">Click here to join us next month!</a></h3>
                 </section>
 			</div>
 		</div>
