@@ -90,6 +90,7 @@
                     <ul>
                         <li>What is a Single Page Application?</li>
                         <li>How do SPAs compare to a traditional Website</li>
+                        <li>What is AJAX and how does it relate to SPA?</li>
                         <li>Pros &amp; Cons of SPAs</li>
                         <li>SPA Frameworks &amp; Libraries</li>
                         <li>Angular2 Project</li>
@@ -123,6 +124,12 @@
                         <aside class="notes">
                             User Experience more similar to a native app - windows/mac/android/iphone/etc
                         </aside>
+                    </section>
+                    <section>
+                        <h2>SPA vs 'conventional' website</h2>
+                        <img src="images/spa-vs-website.png" alt="SPA vs Website" style="height: 90%; width: 90%; margin-bottom: 0;"/>
+                        <p class="right-align" style="font-size: .3em; margin-top: 0; margin-right: 10%;" >
+                        <a href="https://help.optimizely.com/Build_Experiments/AngularJS,_Backbone.js,_React,_and_Single_Page_Applications">Photo by optimizely.com</a></p>
                     </section>
                     <section>
                         <h2>SPA Examples</h2>
@@ -327,8 +334,7 @@
                 <section id="cli">
                     <section>
                         <h2>Angular CLI (Command Line Interface)</h2>
-                        <h3><a href="https://github.com/angular/angular-cli
-" target="_blank">Documentation</a></h3>
+                        <h3><a href="https://github.com/angular/angular-cli" target="_blank">Documentation</a></h3>
                         <ul>
                             <li class="fragment">CLI does things the "right" way according to Angular style guide</li>
                             <div class="fragment">
@@ -364,7 +370,7 @@
                     </section>
                     <section>
                         <h3>CLI Scaffolding</h3>
-                        <video width="700" height="500" controls preload>
+                        <video width="700" height="450" controls preload>
                             <source src="images/scaffold.mov" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -398,6 +404,8 @@
                             <li class="fragment">Organizes your application into sections of functionality that are related</li>
                         </ul>
                     </section>
+                </section>
+                <section id="components">
                     <section>
                         <h3>Components</h3>
                         <ul>
@@ -429,10 +437,10 @@
                         <h3>Components</h3>
                         <ul>
                             <li class="fragment">App root component - note the selector name:
-                                <pre><code class="typescript">import { Component } from '@angular/core';
+                                <pre><code class="typescript" data-trim data-noescape>import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  <mark>selector: 'app-root',</mark>
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -445,7 +453,7 @@ export class AppComponent {
                         <h3>Components</h3>
                         <ul>
                             <li class="fragment">Template utilizes selector name for component placement
-                                <pre><code class="html">&lt;!doctype html&gt;
+                                <pre><code class="html" data-trim data-noescape>&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
@@ -456,7 +464,7 @@ export class AppComponent {
   &lt;link rel="icon" type="image/x-icon" href="favicon.ico"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;app-root&gt;Loading...&lt;/app-root&gt;
+  <mark>&lt;app-root&gt;Loading...&lt;/app-root&gt;</mark>
 &lt;/body&gt;
 &lt;/html&gt;</code></pre></li>
                     </section>
@@ -478,6 +486,8 @@ export class AppComponent {
 </li> -->
                         </ul>
                     </section>
+                </section>
+                <section id="templates">
                     <section>
                         <h3>Templates</h3>
                         <ul>
@@ -536,6 +546,8 @@ export class AppComponent {
                         <pre><code class="html fragment">&lt;!-- orderIsReady = false --&gt;
 &lt;li&gt;Margarita&lt;/li&gt;</code></pre>
                     </section>
+                </section>
+                <section id="data-binding">
                     <section>
                         <h3>Data Binding</h3>
                         <p>Pass data in either one-direction (from the component to the view) or bi-direction (back and forth between the logic &amp; component for live browser updates)</p>
@@ -584,6 +596,11 @@ export class AppComponent {
                             </div>
                         </ul>
                     </section>
+                </section>
+                <section id="break-2" data-background-image="images/break.gif">
+                    <h3>Sometimes you just need a break!</h3>
+                </section>
+                <section id="component-data">
                     <section>
                         <h3>Adding Data to a Component</h3>
                         <ul>
@@ -639,6 +656,8 @@ export class AppComponent {
 &lt;/ul&gt;</code></pre></li>
                         </ul>
                     </section>
+                </section>
+                <section id="directives">
                     <section>
                         <h3>Directives</h3>
                         <h4>Attribute</h4>
@@ -673,9 +692,219 @@ export class AppComponent {
 &lt;/ul&gt;</code></pre></li>
                         </ul>
                     </section>
+                </section>
+                <section id="Services">
                     <section>
-                        <h3>Services</h3>
+                        <h2>Services</h2>
+                        <ul>
+                            <li class="fragment">In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.</li>
+                            <li class="fragment">Useful for things you want to reuse and there is only 1 of. Like the menu bar.</li>
+                        </ul>
                     </section>
+                    <section>
+                        <h2>Services</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li>Create a service using the CLI:</li>
+                                <li><pre><code>ng generate service header</code></pre></li>
+                                <li>Now we have 'header.service.ts'!</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Add stuff to Header/Nav Service</h2>
+                        <ul>
+                            <div class="fragment">
+                            <li>In the 'header.service.ts' file we just generated:</li>
+                            <li><pre><code data-trim data-noescape>
+import {Injectable} from '@angular/core';
+               
+@Injectable()
+    
+export class HeaderService {
+    constructor() { }
+    getNavItems() {
+    <mark>return [
+            { 'path': '/about', 'name': 'About' },
+            { 'path': '/services', 'name': 'Services' },
+            { 'path': '/contact', 'name': 'Contact' }
+        ]</mark>
+    }
+}
+                            </code></pre></li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>In `my-header.component.ts`</h2>
+                        <ul>
+                            <li class="fragment"><pre><code>import { HeaderService } from './header.service';</code></pre></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>In `my-header.component.ts`</h2>
+                        <ul>
+                            <li class="fragment">Add `HeaderService` to `providers` in `@Component` metadata:
+                                <pre><code data-trim data-noescape>providers: [<mark>HeaderService</mark>]</code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>In `my-header.component.ts`</h2>
+                        <ul>
+                            <li class="fragment"> Add service as argument to `constructor`:
+                                <pre><code data-trim data-noescape>constructor(<mark>private headerService: HeaderService</mark>) { }</code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>In `my-header.component.ts`</h2>
+                        <ul>
+                            <li class="fragment">Update `ngOnInit()` to use method from `headerService`
+                                <pre><code data-trim data-noescape>
+ngOnInit() {
+  this.navigationItems = <mark>this.headerService.getNavItems()</mark>;
+}
+                                </code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                </section> <!-- end Services -->
+                <section id="AJAX">
+                    <section>
+                        <h2>SPA vs 'conventional' website</h2>
+                        <img src="images/spa-vs-website.png" alt="SPA vs Website" style="height: 90%; width: 90%; margin-bottom: 0;"/>
+                        <p class="right-align" style="font-size: .3em; margin-top: 0; margin-right: 10%;" >
+                        <a href="https://help.optimizely.com/Build_Experiments/AngularJS,_Backbone.js,_React,_and_Single_Page_Applications">Photo by optimizely.com</a></p>
+                    </section>
+                    <section>
+                        <h2>AJAX -- what is it?</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li>Asynchronous (background) JavaScript and XML (mostly JSON now)</li>
+                                <li>Data exchanged asynchronously between browser and server to <b>avoid full page reloads</b>.</li>
+                                <li>Requires JavaScript to be enabled in the browser (like SPAs in general).</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Request data via AJAX</h2>
+                        <ul>
+                            <li class="fragment">The menu items will be fetched via an HTTP request.</li>
+                            <li class="fragment">This is useful if we want the Menu to change without reloading the page!</li>
+                            <li class="fragment">We will update the service we just made to do this.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li><pre><code>import { Http, Response } from '@angular/http';</code></pre></li>
+                                <li>So we can make HTTP Ajax requests.</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li><pre><code>import 'rxjs/add/operator/map';</code></pre></li>
+                                <li>So we can use the map method to loop over the nav array.</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li><pre><code data-trim data-noescape>
+@Injectable()
+export class HeaderService {
+
+  constructor(<mark>private http: Http</mark>) { }
+                                </code></pre></li>
+                                <li>Add http to the constructor.</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li><pre><code data-trim data-noescape>
+getNavItems() {
+    return <mark>this.http.get('app/menu.json')</mark>
+      .map((res: Response) => res.json());
+  }
+                                </code></pre></li>
+                                <li>Update getNavItems to return nav links via HTTP/Ajax.</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li><pre><code data-trim data-noescape>
+getNavItems() {
+    return this.http.get('app/menu.json')
+      <mark>.map((res: Response) => res.json())</mark>;
+  }
+                                </code></pre></li>
+                                <li>Use the map method to loop through the menu items in the JSON.</li>
+                                <li>You can also modify them while looping through if you need to.</li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'header.service.ts' file</h2>
+                        <ul><code><pre><li>
+@Injectable()
+export class HeaderService {
+
+  constructor(private http: Http) { }
+
+  getNavItems() {
+    return this.http.get('app/menu.json')
+      .map((res: Response) => res.json());
+  }
+}
+                            </code></pre></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'my-header.components.ts' file</h2>
+                        <ul>
+                            <li>What if the menu gets displayed before we get an HTTP response?</li>
+                            <li>To prevent this, we will 'subscribe' to the 'headerService'</li>
+                            <li>This way we will 'watch for' the data response!</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Update 'my-header.components.ts' file</h2>
+                        <ul>
+                            <div class="fragment">
+                                <li>Replace:</li>
+                                <li><pre><code data-trim data-noescape>
+ngOnInit() {
+  this.navigationItems = this.headerService.getNavItems();
+}
+                                </code></pre></li>
+                            </div>
+                            <div class="fragment">
+                                <li>With:</li>
+                                <li><pre><code data-trim data-noescape>
+ngOnInit() {
+  this.headerService.getNavItems()
+  .subscribe(navigationItems => 
+    this.navigationItems = navigationItems);
+}
+                                </code></pre></li>
+                            </div>
+                        </ul>
+                    </section>
+                </section> <!-- end AJAX -->
+                <section>
                     <section>
                         <h3>Routing</h3>
                         <ul>
