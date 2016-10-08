@@ -498,7 +498,7 @@ export class AppComponent {
                                     </div>
                                     <div class="fragment">
                                         <li>Individual HTML File</li>
-                                        <li><pre><code class="typescript">templateUrl: './my-header.component.html'</code></pre></li>
+                                        <li><pre><code class="typescript">templateUrl: './header.component.html'</code></pre></li>
                                     </div>
                                 </ul>
                             </li>
@@ -625,7 +625,7 @@ export class AppComponent {
                             <li>Add navigation items to component lifecycle Hook OnInit</li>
                             <li class="fragment">OnInit is a method run shortly after the component is created</li>
                             <li class="fragment">OnInit is often the place where you fetch initial data, perform complex initializations after construction to keep the component itself simpler, or set up the component after input properties are set</li>
-                            <li class="fragment"><pre><code class="typescript">export class MyHeaderComponent implements OnInit {
+                            <li class="fragment"><pre><code class="typescript">export class HeaderComponent implements OnInit {
     navigationItems: NavigationItem[];
 }</code></pre></li>
                             <li class="fragment"><pre><code class="typescript">ngOnInit() {
@@ -696,10 +696,18 @@ export class AppComponent {
                     <section>
                         <h2>Services</h2>
                         <ul>
-                            <div class="fragment">
-                                <li>Create a service using the CLI:</li>
-                                <li><pre><code>ng generate service header</code></pre></li>
-                                <li>Now we have 'header.service.ts'!</li>
+                            <li class="fragment">$http is a service, $location is too and $timeout</li>
+                            <li class="fragment">The functionality of the above can be done without angular, but why? when angular can do it for you.</li>
+                            <li class="fragment">When making a SPA, it's best to let the framework handle it for you.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Services</h2>
+                        <ul>
+                            <div>
+                                <li class="fragment">Create a service using the CLI:</li>
+                                <li class="fragment"><pre><code>ng generate service header</code></pre></li>
+                                <li class="fragment">Now we have 'header.service.ts'!</li>
                             </div>
                         </ul>
                     </section>
@@ -728,13 +736,13 @@ export class HeaderService {
                         </ul>
                     </section>
                     <section>
-                        <h2>In `my-header.component.ts`</h2>
+                        <h2>In `header.component.ts`</h2>
                         <ul>
                             <li class="fragment"><pre><code>import { HeaderService } from './header.service';</code></pre></li>
                         </ul>
                     </section>
                     <section>
-                        <h2>In `my-header.component.ts`</h2>
+                        <h2>In `header.component.ts`</h2>
                         <ul>
                             <li class="fragment">Add `HeaderService` to `providers` in `@Component` metadata:
                                 <pre><code data-trim data-noescape>providers: [<mark>HeaderService</mark>]</code></pre>
@@ -742,7 +750,7 @@ export class HeaderService {
                         </ul>
                     </section>
                     <section>
-                        <h2>In `my-header.component.ts`</h2>
+                        <h2>In `header.component.ts`</h2>
                         <ul>
                             <li class="fragment"> Add service as argument to `constructor`:
                                 <pre><code data-trim data-noescape>constructor(<mark>private headerService: HeaderService</mark>) { }</code></pre>
@@ -750,9 +758,21 @@ export class HeaderService {
                         </ul>
                     </section>
                     <section>
-                        <h2>In `my-header.component.ts`</h2>
+                        <h2>In `header.component.ts`</h2>
                         <ul>
-                            <li class="fragment">Update `ngOnInit()` to use method from `headerService`
+                        	<li class="fragment">Update `ngOnInit()` to use method from `headerService`</li>
+                        	<li class="fragment"> Replace
+                        		<pre><code data-trim data-noescape>
+ getNavItems() {
+    <mark>return [
+            { 'path': '/about', 'name': 'About' },
+            { 'path': '/services', 'name': 'Services' },
+            { 'path': '/contact', 'name': 'Contact' }
+        ]</mark>
+    }
+                        		</code></pre>
+                        	</li>
+                            <li class="fragment"> With
                                 <pre><code data-trim data-noescape>
 ngOnInit() {
   this.navigationItems = <mark>this.headerService.getNavItems()</mark>;
@@ -772,10 +792,10 @@ ngOnInit() {
                     <section>
                         <h2>AJAX -- what is it?</h2>
                         <ul>
-                            <div class="fragment">
-                                <li>Asynchronous (background) JavaScript and XML (mostly JSON now)</li>
-                                <li>Data exchanged asynchronously between browser and server to <b>avoid full page reloads</b>.</li>
-                                <li>Requires JavaScript to be enabled in the browser (like SPAs in general).</li>
+                            <div>
+                                <li class="fragment">Asynchronous (background) JavaScript and XML (mostly JSON now)</li>
+                                <li class="fragment">Data exchanged asynchronously between browser and server to <b>avoid full page reloads</b>.</li>
+                                <li class="fragment">Requires JavaScript to be enabled in the browser (like SPAs in general).</li>
                             </div>
                         </ul>
                     </section>
@@ -865,11 +885,11 @@ export class HeaderService {
                         </ul>
                     </section>
                     <section>
-                        <h2>Update 'my-header.components.ts' file</h2>
+                        <h2>Update 'header.components.ts' file</h2>
                         <ul>
-                            <li>What if the menu gets displayed before we get an HTTP response?</li>
-                            <li>To prevent this, we will 'subscribe' to the 'headerService'</li>
-                            <li>This way we will 'watch for' the data response!</li>
+                            <li class="fragment">What if the menu gets displayed before we get an HTTP response?</li>
+                            <li class="fragment">To prevent this, we will 'subscribe' to the 'headerService'</li>
+                            <li class="fragment">This way we will 'watch for' the data response!</li>
                         </ul>
                     </section>
                     <section>
@@ -966,6 +986,10 @@ ngOnInit() {
                         <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#KCWiT</p>
                         <p style="font-size: 1.2em; display: inline-block; margin: 10px;">#CodingAndCocktailsKC</p>
                     </div>
+                     <aside class="notes">
+                     	Don't forget about Slack! Slack is a great place to get help and stay in touch.
+                     	There is a link to sign up for next month!
+                     </aside>
                 </section>
 			</div>
 		</div>
